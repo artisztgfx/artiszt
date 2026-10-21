@@ -2641,7 +2641,9 @@
     if(token && Date.now() - tokenAt < 5 * 3600 * 1000) return Promise.resolve();
     if(!formReady) return Promise.reject(new Error('The form has no address to send to yet'));
     if(!tokenRequest){
-      tokenRequest = fetch(FORM_ENDPOINT + '?token=1', { cache: 'no-store', credentials: 'omit' })
+      // A fresh address each time keeps any cache out of it; a no-cache setting would
+      // make some browsers add headers, and with them a "preflight" the script can't answer.
+      tokenRequest = fetch(FORM_ENDPOINT + '?token=1&t=' + Date.now(), { credentials: 'omit' })
         .then(function(response){ return response.json(); })
         .then(function(data){
           if(!data || !data.token) throw new Error('No token');
