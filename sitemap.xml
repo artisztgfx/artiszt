@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Artiszt - the site map search engines read (robots.txt points here): the
+     one page, plus the full-size portfolio images. The page draws the pieces
+     as backgrounds with a script, which search engines don't pick up as images
+     on their own, so they are listed here for Google Images, in the page's
+     order. When a piece is added, replaced or renamed, update its line and the
+     lastmod date (the day the page last changed). If the domain changes,
+     update every address here and in robots.txt. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://artiszt.com/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <!-- UI/UX Designs -->
+    <image:image><image:loc>https://artiszt.com/assets/img/work/ui-ux-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/ui-ux-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/ui-ux-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/ui-ux-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/ui-ux-05.jpg</image:loc></image:image>
+    <!-- Cover Art Designs -->
+    <image:image><image:loc>https://artiszt.com/assets/img/work/cover-art-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/cover-art-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/cover-art-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/cover-art-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/cover-art-05.jpg</image:loc></image:image>
+    <!-- Thumbnails -->
+    <image:image><image:loc>https://artiszt.com/assets/img/work/thumbnails-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/thumbnails-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/thumbnails-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/thumbnails-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/thumbnails-05.jpg</image:loc></image:image>
+    <!-- Posters -->
+    <image:image><image:loc>https://artiszt.com/assets/img/work/posters-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/posters-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/posters-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/posters-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/posters-05.jpg</image:loc></image:image>
+  </url>
+</urlset>

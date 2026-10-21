@@ -1,0 +1,7 @@
+# Artiszt - search engines may crawl the whole site. The sitemap lists the
+# home page and the portfolio images (the page draws them with a script, so
+# search engines find them through the sitemap).
+User-agent: *
+Allow: /
+
+Sitemap: https://artiszt.com/sitemap.xml
