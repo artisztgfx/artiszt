@@ -376,6 +376,13 @@
     border-bottom-color: var(--border-soft);
   }
   .nav .wrap{ display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  /* Computers: three columns, so the links sit in the middle of the bar
+     whether or not the bar's "Start a project" is showing. */
+  @media (min-width: 861px){
+    .nav .wrap{ display: grid; grid-template-columns: 1fr auto 1fr; column-gap: var(--s5); }
+    .brand{ justify-self: start; }
+    .nav-right{ justify-self: end; }
+  }
   .brand{ font-size: 19px; font-weight: 700; text-decoration: none; }
   .nav-links{ list-style: none; display: flex; gap: var(--s5); align-items: center; }
   .nav-links a{ font-size: 15px; color: var(--text-dim); text-decoration: none; transition: color 0.22s ease; }
@@ -400,6 +407,19 @@
     .nav-links a:not(.btn)::before{ content: ''; position: absolute; top: -12px; bottom: -12px; left: -8px; right: -8px; }
   }
   .nav-right{ display: flex; align-items: center; gap: var(--s3); }
+  /* The bar's own "Start a project": hidden until the hero's button has gone
+     up past the bar, so the two never show at once, then there wherever the
+     visitor is, on every screen size. Hidden, it keeps its place (nothing in
+     the bar moves when it appears), and Tab and screen readers skip it. */
+  .nav-cta{
+    transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease,
+                transform 0.22s var(--ease), box-shadow 0.22s ease, opacity 0.22s ease, visibility 0s;
+  }
+  .nav:not(.has-cta) .nav-cta{
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease,
+                transform 0.22s var(--ease), box-shadow 0.22s ease, opacity 0.22s ease, visibility 0s linear 0.22s;
+  }
 
   /* ---------- theme toggle ---------- */
   .theme-toggle{
@@ -432,7 +452,12 @@
 
   @media (max-width: 860px){
     .nav-links{
-      position: fixed; top: var(--nav-h); right: 0; bottom: 0;
+      position: fixed; top: var(--nav-h); right: 0;
+      /* A height, not bottom: 0. Once the page scrolls, the bar's blur
+         (backdrop-filter) makes the bar the box this panel is placed in, and
+         bottom: 0 then meant the bar's own bottom edge: the open menu shrank
+         to a strip showing only "Work". */
+      height: calc(100vh - var(--nav-h)); height: calc(100dvh - var(--nav-h));
       width: min(78vw, 320px); background: var(--bg-panel);
       flex-direction: column; align-items: flex-start;
       padding: var(--s5) var(--s4); gap: var(--s4);
@@ -447,10 +472,23 @@
     .nav-links.is-open{ transform: translateX(0); visibility: visible; transition: transform 0.4s var(--ease), visibility 0s; }
     .nav-links a{ font-size: 17px; }
     .nav-toggle{ display: block; }
-    .nav-cta{ display: none; }
+    /* In the phone bar the button is smaller, 12px from the switch rather than 24. */
+    .nav-cta{ min-height: 40px; padding: 0 var(--s2); font-size: 14px; margin-right: -12px; }
     .nav-links .nav-cta-mobile{ display: inline-flex; margin-top: var(--s2); }
   }
-  @media (min-width: 861px){ .nav-cta-mobile{ display: none; } }
+  /* The menu's own button is hidden on computers with its list item, which
+     would otherwise leave an empty slot (and a gap) after Contact. */
+  @media (min-width: 861px){ .nav-cta-mobile, .menu-only{ display: none; } }
+  /* Narrow phones: the button shrinks so the logo, button, switch and menu
+     button keep room between them. Under 355px they can't all fit, so the
+     light/dark switch steps aside while the button shows (it's back at the
+     top of the page). */
+  @media (max-width: 389px){ .nav-cta{ padding: 0 14px; font-size: 13px; } }
+  @media (max-width: 374px){ .nav-cta{ padding: 0 12px; font-size: 12px; } }
+  @media (max-width: 354px){
+    .nav:not(.has-cta) .nav-cta{ display: none; }
+    .nav.has-cta .theme-toggle{ display: none; }
+  }
 
   /* ---------- hero ---------- */
   .hero{
@@ -1094,17 +1132,18 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#start" class="btn btn-primary nav-cta-mobile">Start a project</a></li>
+        <li class="menu-only"><a href="#start" class="btn btn-primary nav-cta-mobile">Start a project</a></li>
       </ul>
     </nav>
     <div class="nav-right">
+      <!-- Fitts's Law: large, unambiguous click target, always reachable once the hero's own button has
+           scrolled away - this is the site's one-click path to contact from anywhere. -->
+      <a href="#start" class="btn btn-primary nav-cta">Start a project</a>
       <button type="button" class="theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Switch to light mode">
         <svg class="theme-icon theme-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
         <svg class="theme-icon theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
         <span class="theme-knob" aria-hidden="true"></span>
       </button>
-      <!-- Fitts's Law: large, unambiguous click target, always reachable - this is the site's one-click path to contact from anywhere. -->
-      <a href="#start" class="btn btn-primary nav-cta">Start a project</a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
       </button>
@@ -1123,7 +1162,7 @@
       </h1>
       <p class="lead hero-lead">UI/UX design, graphic design, and motion design - all in one place.</p>
       <div class="hero-actions">
-        <a href="#start" class="btn btn-primary">Start a project</a>
+        <a href="#start" class="btn btn-primary" id="heroStart">Start a project</a>
         <a href="#services" class="btn btn-ghost">See services &amp; rates</a>
       </div>
     </div>
@@ -1468,11 +1507,18 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---------- nav: scrolled state + mobile menu ---------- */
+  /* ---------- nav: scrolled state, its button, mobile menu ---------- */
   var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function(){
+  var heroStart = document.getElementById('heroStart');
+  function updateNav(){
     nav.classList.toggle('is-scrolled', window.scrollY > 24);
-  }, { passive: true });
+    // The bar's "Start a project" shows once the hero's has gone up past the
+    // bar, and not before, so the two never show at once.
+    nav.classList.toggle('has-cta', heroStart.getBoundingClientRect().bottom <= nav.getBoundingClientRect().bottom);
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  window.addEventListener('resize', updateNav);
+  updateNav();
 
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
