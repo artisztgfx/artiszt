@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Artiszt - the site map search engines read (robots.txt points here): the
-     one page, plus the full-size portfolio images. The page draws the pieces
+     home page with the full-size portfolio images, and the three service pages
+     (2026-10-28) with the card-size copies they show. The page draws the pieces
      as backgrounds with a script, which search engines don't pick up as images
      on their own, so they are listed here for Google Images, in the page's
      order. When a piece is added, replaced or renamed, update its line and the
@@ -10,7 +11,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://artiszt.com/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <!-- UI/UX Designs -->
     <image:image><image:loc>https://artiszt.com/assets/img/work/ui-ux-01.jpg</image:loc></image:image>
     <image:image><image:loc>https://artiszt.com/assets/img/work/ui-ux-02.jpg</image:loc></image:image>
@@ -35,5 +36,37 @@
     <image:image><image:loc>https://artiszt.com/assets/img/work/posters-03.jpg</image:loc></image:image>
     <image:image><image:loc>https://artiszt.com/assets/img/work/posters-04.jpg</image:loc></image:image>
     <image:image><image:loc>https://artiszt.com/assets/img/work/posters-05.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://artiszt.com/ui-ux-design/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/ui-ux-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/ui-ux-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/ui-ux-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/ui-ux-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/ui-ux-05.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://artiszt.com/graphic-design/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/thumbnails-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/thumbnails-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/thumbnails-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/thumbnails-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/thumbnails-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/cover-art-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/cover-art-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/cover-art-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/cover-art-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/cover-art-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/posters-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/posters-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/posters-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/posters-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artiszt.com/assets/img/work/carousel/posters-05.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://artiszt.com/motion-design/</loc>
+    <lastmod>2026-10-28</lastmod>
   </url>
 </urlset>
