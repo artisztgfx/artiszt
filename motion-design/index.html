@@ -864,6 +864,9 @@
   .consent input{ width: 18px; height: 18px; margin-top: 3px; accent-color: var(--accent); flex: none; }
   .consent label{ font-size: 13px; color: var(--text-dim); }
   .consent a{ color: var(--text); text-decoration: underline; }
+  /* The note under Send: small and dim like the consent line, so the button stays
+     the one thing that stands out; pretty wrapping keeps "Thank you!" together. */
+  .form-note{ font-size: 13px; color: var(--text-dim); margin-top: var(--s2); text-wrap: pretty; }
 
   .form-status{ font-size: 14px; margin-top: var(--s2); min-height: 20px; text-wrap: pretty; } /* no lone last word */
   /* The second decoy field (spam defence, see the form): hidden here rather than in
@@ -1301,7 +1304,7 @@
   <section class="sec cta-band" id="next">
     <div class="wrap">
       <h2>Have something that should&nbsp;move?</h2>
-      <p class="lead">Tell me what you're working on, and you'll hear back within a day or two with next steps and a rough quote.</p>
+      <p class="lead">Tell me what you're working on, and you'll hear back within 1 day with next steps and a rough quote.</p>
       <div class="page-actions">
         <a href="../?project=Motion%20%2F%20animated%20art#start" class="btn btn-primary">Start a project</a>
         <a href="mailto:artisztgfx@gmail.com" class="btn btn-ghost">Email instead</a>

@@ -896,6 +896,9 @@
   .consent input{ width: 18px; height: 18px; margin-top: 3px; accent-color: var(--accent); flex: none; }
   .consent label{ font-size: 13px; color: var(--text-dim); }
   .consent a{ color: var(--text); text-decoration: underline; }
+  /* The note under Send: small and dim like the consent line, so the button stays
+     the one thing that stands out; pretty wrapping keeps "Thank you!" together. */
+  .form-note{ font-size: 13px; color: var(--text-dim); margin-top: var(--s2); text-wrap: pretty; }
 
   .form-status{ font-size: 14px; margin-top: var(--s2); min-height: 20px; text-wrap: pretty; } /* no lone last word */
   /* The second decoy field (spam defence, see the form): hidden here rather than in
@@ -1339,7 +1342,7 @@
       <div class="sec-head">
         <div class="label">Start a project</div>
         <h2>Tell me what you're working on.</h2>
-        <p class="lead">Reply time is usually within a day or two, with next steps and a rough quote.</p>
+        <p class="lead">Reply time is usually within 1 day, with next steps and a rough quote.</p>
       </div>
 
       <!-- The form goes straight to a small script in the owner's Google account (its
@@ -1389,6 +1392,7 @@
           <label for="fConsent">I agree to be contacted about this enquiry, as explained in the <a href="#" data-modal="privacy">Privacy Policy</a>. Required to send.</label>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        <p class="form-note">I reply within 1 day. If you don't see my email, please check your spam folder. Thank you!</p>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         <noscript><p class="form-status">Sending this form needs JavaScript. With it switched off, email <a href="mailto:artisztgfx@gmail.com">artisztgfx@gmail.com</a> instead.</p></noscript>
       </form>
@@ -2810,7 +2814,7 @@
         });
       })
       .then(function(){
-        showStatus("Thanks - that's sent. I'll get back to you within a day or two.", 'ok');
+        showStatus("Thanks - that's sent. I'll get back to you within 1 day.", 'ok');
         form.reset();
         justSent = true;
         token = '';   // each code is good for one enquiry
